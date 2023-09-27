@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl7qrvb8mmo6u"]
+
+[ext_resource type="PackedScene" uid="uid://d4gtp1tf2iywo" path="res://grid.tscn" id="1_8p6wl"]
+
+[node name="World" type="Node2D"]
+
+[node name="Grid" parent="." instance=ExtResource("1_8p6wl")]
+grid_width = 50
+grid_length = 50

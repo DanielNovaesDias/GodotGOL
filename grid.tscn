@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4gtp1tf2iywo"]
+
+[ext_resource type="Texture2D" uid="uid://d07fqcdx8l0p8" path="res://black_white_tile.png" id="1_rjpub"]
+[ext_resource type="Script" path="res://Grid.gd" id="2_ij8w1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km600"]
+resource_name = "Alive/Dead"
+texture = ExtResource("1_rjpub")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_c2i3q"]
+sources/0 = SubResource("TileSetAtlasSource_km600")
+
+[node name="Grid" type="TileMap"]
+tile_set = SubResource("TileSet_c2i3q")
+format = 2
+script = ExtResource("2_ij8w1")
+grid_width = 30
+grid_length = 30
+simu_tick = 0.1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
